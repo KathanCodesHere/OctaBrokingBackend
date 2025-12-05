@@ -2,11 +2,12 @@ import { databaseSecret } from "./env.config.js";
 import mysql from "mysql2/promise"; 
 
 const pool = mysql.createPool({
-    host:"127.0.0.1" || databaseSecret.DATABASE_HOST,
+    // host:"127.0.0.1" || databaseSecret.DATABASE_HOST,
+    host: databaseSecret.DATABASE_HOST,
     user:databaseSecret.DATABASE_USER || "root",
-   password:databaseSecret.DATABASE_PASSWORD,
+    password:databaseSecret.DATABASE_PASSWORD,
     database:databaseSecret.DATABASE_NAME,
-    port:databaseSecret.DATABASE_PORT || 3307 , 
+    port:databaseSecret.DATABASE_PORT || 3306 , 
     connectionLimit:10,
     queueLimit:0,
     waitForConnections:true,
